@@ -1,0 +1,113 @@
+<html lang="pl_PL">
+
+
+<head>
+<style type="text/css">
+h1
+{
+color:red;
+font-size:20px;
+}
+#cos
+{
+	background-color:#CCFFE5;
+border-top: solid 2px;
+   border-left: solid 3px;
+   border-right: solid 3px;
+   border-bottom: solid 2px;
+   font-family:Arial;
+   height:150px;
+   margin-left:300px;
+   margin-right:300px;
+   border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+	 border-bottom-right-radius: 30px;
+	  border-bottom-left-radius: 30px;
+}
+</style>
+<meta charset="utf-8" />
+
+<title> Kalkulator   BMI </title>
+</head>
+
+<body>
+<center>
+
+<font size="10" color="red"><b>KALKULATOR BMI</b> </font> 
+<div id="cos">
+
+
+</br> </br>
+
+Podaj swoją mase ciała <input type="number" id="number1" min="3" max="400"> kg.
+</br> </br>
+Podaj swój wzrost <input type="number" id="number2" min="50" max="250"  /> cm.
+</br>
+</br>
+<button onclick="return java()">Sprawdź Swoje BMI!</button>
+</div>
+
+<script>
+
+
+function java()
+{
+
+var first = document.getElementById("number1").value;
+ var second = document.getElementById("number2").value;
+
+if( first<3 || second<50 || first>400 || second>250)
+ 
+{
+alert ('Błąd danych. Źle wpisane wartości.');
+}
+else {
+cm = second * 0.01;
+ s = Math.pow(cm, 2);
+suma = (first) / (s) ;
+var wynik = suma.toFixed(2);
+ if (suma < 18)
+{
+document.getElementById("info1").innerHTML = '<b><hi> '+ wynik + ' Niedowaga. Zgłoś się do lekarza!</h1> </b> ';
+}
+else if (suma > 18 , suma < 25)
+{
+document.getElementById("info1").innerHTML = '<B><h1> '+ wynik + ' Prawidłowa waga! </h1> </b>';
+
+}
+
+else if (suma > 25 , suma < 30)
+{
+document.getElementById("info1").innerHTML = '<b><h1> '+ wynik + ' Nadwaga! </h1> </b>';
+}
+else if (suma > 30 , suma < 35)
+{
+document.getElementById("info1").innerHTML = '<b><h1> '+ wynik + ' I Stopień otyłości! </h1> </b>';
+
+}
+else if (suma > 35 , suma < 40)
+{
+document.getElementById("info1").innerHTML = ' <b> <h1>'+ wynik + ' II Stopień otyłości! </h1> </b> ';
+}
+else if (suma > 40 , suma < 50)
+{
+document.getElementById("info1").innerHTML = '<b><h1> '+ wynik + ' III Stopień otyłości!</h1></b> ';
+}
+else if (suma > 50)
+{
+document.getElementById("info1").innerHTML = '<b><h1> '+ wynik + ' Mocna nadwaga. Zgłoś się do lekarza! </h1></b> ';
+}
+
+}
+}
+</script>
+
+<center>
+<p id="info1" onclick="Inner()"></p>
+<b>"Kalkulator BMI, czyli indeks masy ciała został opracowany prawie 200 lat temu przez belgijskiego statystyka Adolfa Queteleta. </br>
+Do powszechnego użytku wszedł w latach 70-tych XX wieku. Obecnie posługują się nim liczne organizacje i ośrodki zajmujące się zdrowiem. </br>
+BMI (ang. Body Mass Index - wskaźnik masy ciała) to wskaźnik, którego wynik pozwoli ci ocenić, czy twoja waga utrzymuje się w normie, czy nie." </b>
+
+<img src='pic.png'>
+</body>
+</html>
